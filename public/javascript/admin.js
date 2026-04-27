@@ -15,7 +15,7 @@ const AdminDashboard = {
     async init() {
         // Wait for config to load from server
         await waitForConfig();
-        
+
         this.checkAuth();
         this.setupEventListeners();
         this.loadDashboardData();
@@ -312,8 +312,8 @@ const AdminDashboard = {
             if (result.success) {
                 const d = result.data;
                 this.showModal({
-                    title: `👤 User: ${d.id}`,
-                    message: `Name: ${d.name}\nPhone: ${d.phone || 'N/A'}\nStatus: ${d.status}\nSent Today: ${d.sentToday}\nTotal Sent: ${d.totalSent}`,
+                    title: `👤 User: ${d.name}`,
+                    message: `Status: ${d.status}\nSent Today: ${d.sentToday}\nTotal Sent: ${d.totalSent}`,
                     confirmLabel: 'Close',
                     confirmClass: 'btn-primary',
                     onConfirm: () => { }

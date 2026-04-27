@@ -23,6 +23,8 @@ Thumbs.db
 *.swp
 *.swo
 
+ databases/sms_system.db
+ 
 # Database files (optional - uncomment if you don't want to commit DB)
 # databases/*.sqlite
 # databases/*.sqlite-shm

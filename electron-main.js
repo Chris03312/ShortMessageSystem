@@ -98,21 +98,15 @@ function createWindow() {
                 <div class="container">
                     <div class="icon">⚠️</div>
                     <h1>Cannot Connect to Server</h1>
-                    <p>The SMS Blast server is not available. Please check:</p>
+                    <p>Server is not available. Please check if:</p>
                     <ul style="text-align: left; color: #aaa; line-height: 1.8;">
                         <li>Server is running</li>
                         <li>Server address is correct</li>
                         <li>Network connection is active</li>
                         <li>Firewall allows connection</li>
                     </ul>
-                    <div class="server-info">
-                        Trying to connect to:<br>
-                        <strong>${SERVER_URL}</strong>
-                    </div>
-                    <button onclick="location.reload()">Retry Connection</button>
-                    <button onclick="require('electron').remote.app.quit()">Close App</button>
                     <p style="color: #666; margin-top: 2rem; font-size: 0.875rem;">
-                        Error: ${errorDescription}
+                        ${errorDescription}
                     </p>
                 </div>
             </body>
