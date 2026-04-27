@@ -1,0 +1,8 @@
+<svg width="256" height="256" xmlns="http://www.w3.org/2000/svg">
+  <rect width="256" height="256" fill="#4A90E2" rx="30"/>
+  <path d="M180 100L140 100C135 100 130 105 130 110L130 170C130 175 135 180 140 180L180 180C185 180 190 175 190 170L190 110C190 105 185 100 180 100Z" fill="white"/>
+  <path d="M115 120L75 120C70 120 65 125 65 130L65 190C65 195 70 200 75 200L115 200C120 200 125 195 125 190L125 130C125 125 120 120 115 120Z" fill="white"/>
+  <circle cx="100" cy="80" r="25" fill="white"/>
+  <circle cx="165" cy="65" r="20" fill="white"/>
+  <text x="128" y="230" font-family="Arial" font-size="14" fill="white" text-anchor="middle">SMS BLAST</text>
+</svg>

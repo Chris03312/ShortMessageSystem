@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SRMC | Admin Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+    <div class="admin-wrapper">
+        <!-- Top Navigation -->
+        <nav class="admin-nav">
+            <div class="nav-content">
+                <div class="nav-brand">
+                    <svg class="nav-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="adminLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#4F46E5;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#06B6D4;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M50 10 L85 30 L85 70 L50 90 L15 70 L15 30 Z" fill="url(#adminLogoGrad)"
+                            opacity="0.2" />
+                        <path d="M50 20 L75 35 L75 65 L50 80 L25 65 L25 35 Z" fill="url(#adminLogoGrad)" />
+                        <circle cx="50" cy="50" r="8" fill="white" />
+                    </svg>
+                    <div class="nav-brand-text">
+                        <h1 class="nav-title">SRMC Admin</h1>
+                        <p class="nav-subtitle">Management Portal</p>
+                    </div>
+                </div>
+
+                <div class="nav-actions">
+                    <div class="admin-info">
+                        <div class="admin-avatar">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                        <div class="admin-details">
+                            <span id="adminName" class="admin-name">Administrator</span>
+                            <span class="admin-role">Super Admin</span>
+                        </div>
+                    </div>
+                    <button id="refreshBtn" class="btn-refresh">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="23 4 23 10 17 10"></polyline>
+                            <polyline points="1 20 1 14 7 14"></polyline>
+                            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                        </svg>
+                        <span>Refresh</span>
+                    </button>
+                    <button id="logoutBtn" class="btn-logout">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                            <polyline points="16 17 21 12 16 7"></polyline>
+                            <line x1="21" y1="12" x2="9" y2="12"></line>
+                        </svg>
+                        <span>Logout</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <div class="admin-container">
+            <!-- Sidebar Navigation -->
+            <aside class="sidebar">
+                <nav class="sidebar-nav">
+                    <a href="#" class="nav-item active" data-tab="overview">
+                        <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="14" width="7" height="7"></rect>
+                            <rect x="3" y="14" width="7" height="7"></rect>
+                        </svg>
+                        <span>Overview</span>
+                    </a>
+                    <a href="#" class="nav-item" data-tab="users">
+                        <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                        <span>Users</span>
+                    </a>
+                    <a href="#" class="nav-item" data-tab="adduser">
+                        <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="8.5" cy="7" r="4"></circle>
+                            <line x1="20" y1="8" x2="20" y2="14"></line>
+                            <line x1="23" y1="11" x2="17" y2="11"></line>
+                        </svg>
+                        <span>Add User</span>
+                    </a>
+                    <a href="#" class="nav-item" data-tab="logs">
+                        <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                        <span>Activity Logs</span>
+                    </a>
+                    <a href="#" class="nav-item" data-tab="numbers">
+                        <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                            <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                        </svg>
+                        <span>Phone Numbers</span>
+                    </a>
+                </nav>
+            </aside>
+
+            <!-- Main Content Area -->
+            <main class="main-content">
+                <!-- Overview Tab -->
+                <div id="overview-tab" class="tab-content active">
+                    <div class="page-header">
+                        <h2 class="page-title">Dashboard Overview</h2>
+                        <p class="page-description">Real-time system analytics and monitoring</p>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-card stat-primary">
+                            <div class="stat-icon-wrapper">
+                                <svg class="stat-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-value" id="totalUsers">0</div>
+                                <div class="stat-label">Total Users</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card stat-success">
+                            <div class="stat-icon-wrapper">
+                                <svg class="stat-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-value" id="totalSent">0</div>
+                                <div class="stat-label">Sent Today</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card stat-error">
+                            <div class="stat-icon-wrapper">
+                                <svg class="stat-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-value" id="totalFailed">0</div>
+                                <div class="stat-label">Failed Messages</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card stat-warning">
+                            <div class="stat-icon-wrapper">
+                                <svg class="stat-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-value" id="totalQueued">0</div>
+                                <div class="stat-label">Queued</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Recent Activity</h3>
+                            <div class="activity-badge">Live</div>
+                        </div>
+                        <div id="recentActivity" class="activity-list">
+                            <div class="activity-loading">Loading activity...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Users Tab -->
+                <div id="users-tab" class="tab-content">
+                    <div class="page-header">
+                        <h2 class="page-title">User Management</h2>
+                        <p class="page-description">Manage and monitor active users</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="filter-bar">
+                            <div class="search-wrapper">
+                                <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <path d="m21 21-4.35-4.35"></path>
+                                </svg>
+                                <input type="text" id="searchUser" placeholder="Search by name or user ID..."
+                                    class="search-input">
+                            </div>
+                            <select id="userStatusFilter" class="filter-select">
+                                <option value="all">All Status</option>
+                                <option value="active">Active Only</option>
+                                <option value="inactive">Inactive Only</option>
+                            </select>
+                        </div>
+
+                        <div class="table-wrapper">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Phone</th>
+                                        <th>Status</th>
+                                        <th>Sent Today</th>
+                                        <th>Last Active</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="usersTableBody">
+                                    <tr>
+                                        <td colspan="7" class="table-loading">Loading users...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="users-pagination" class="pagination-container"></div>
+                    </div>
+                </div>
+
+                <!-- Add User Tab -->
+                <div id="adduser-tab" class="tab-content">
+                    <div class="page-header">
+                        <h2 class="page-title">Add New User</h2>
+                        <p class="page-description">Create a new user account</p>
+                    </div>
+
+                    <div class="card card-form">
+                        <form id="addUserForm" class="user-form">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="newUserId" class="form-label">
+                                        <span>User ID</span>
+                                        <span class="required">*</span>
+                                    </label>
+                                    <input type="text" id="newUserId" name="username" class="form-input"
+                                        placeholder="Enter User ID" required>
+                                    <small class="form-hint">Used for login authentication</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="newName" class="form-label">
+                                        <span>Full Name</span>
+                                        <span class="required">*</span>
+                                    </label>
+                                    <input type="text" id="newName" name="name" class="form-input"
+                                        placeholder="Enter full name" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="newPassword" class="form-label">
+                                        <span>Password</span>
+                                        <span class="required">*</span>
+                                    </label>
+                                    <input type="password" id="newPassword" name="password" class="form-input"
+                                        placeholder="Enter password" required>
+                                    <small class="form-hint">Minimum 6 characters</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="confirmPassword" class="form-label">
+                                        <span>Confirm Password</span>
+                                        <span class="required">*</span>
+                                    </label>
+                                    <input type="password" id="confirmPassword" name="confirmPassword"
+                                        class="form-input" placeholder="Confirm password" required>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-large">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="8.5" cy="7" r="4"></circle>
+                                    <line x1="20" y1="8" x2="20" y2="14"></line>
+                                    <line x1="23" y1="11" x2="17" y2="11"></line>
+                                </svg>
+                                <span>Add User</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Logs Tab -->
+                <div id="logs-tab" class="tab-content">
+                    <div class="page-header">
+                        <h2 class="page-title">Activity Logs</h2>
+                        <p class="page-description">Monitor system activity and message history</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="filter-bar">
+                            <select id="logFilter" class="filter-select">
+                                <option value="all">All Logs</option>
+                                <option value="sent">Sent Messages</option>
+                                <option value="failed">Failed Messages</option>
+                            </select>
+                            <input type="date" id="logDate" class="filter-date">
+                        </div>
+
+                        <div class="table-wrapper">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Time</th>
+                                        <th>User</th>
+                                        <th>Phone</th>
+                                        <th>Status</th>
+                                        <th>Gateway</th>
+                                        <th>Details</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="logsTableBody">
+                                    <tr>
+                                        <td colspan="6" class="table-loading">Loading logs...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="logs-pagination" class="pagination-container"></div>
+                    </div>
+                </div>
+
+                <!-- Phone Numbers Tab -->
+                <div id="numbers-tab" class="tab-content">
+                    <div class="page-header">
+                        <h2 class="page-title">Phone Numbers</h2>
+                        <p class="page-description">Manage registered phone numbers</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="filter-bar">
+                            <div class="search-wrapper">
+                                <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <path d="m21 21-4.35-4.35"></path>
+                                </svg>
+                                <input type="text" id="searchNumber" placeholder="Search phone number..."
+                                    class="search-input">
+                            </div>
+                            <select id="numberFilter" class="filter-select">
+                                <option value="all">All Numbers</option>
+                                <option value="active">Active</option>
+                                <option value="blacklisted">Inactive</option>
+                            </select>
+                        </div>
+
+                        <div class="table-wrapper">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Phone Number</th>
+                                        <th>User</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="numbersTableBody">
+                                    <tr>
+                                        <td colspan="4" class="table-loading">Loading numbers...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="numbers-pagination" class="pagination-container"></div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <h3 id="modalTitle" class="modal-title">Confirm Action</h3>
+            <p id="modalMessage" class="modal-message"></p>
+            <div class="modal-actions">
+                <button id="modalCancelBtn" class="btn btn-secondary">Cancel</button>
+                <button id="modalConfirmBtn" class="btn btn-danger">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <script src="javascript/config.js"></script>
+    <script src="javascript/admin-api.js"></script>
+    <script src="javascript/admin.js"></script>
+</body>
+
+</html>

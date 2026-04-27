@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SRMC | Login Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+    <div class="login-wrapper">
+        <!-- Animated Background -->
+        <div class="bg-animation">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+        </div>
+
+        <!-- Left Panel - Branding -->
+        <div class="brand-panel">
+            <div class="brand-content">
+                <div class="logo-container">
+                    <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#4F46E5;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#06B6D4;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M50 10 L85 30 L85 70 L50 90 L15 70 L15 30 Z" fill="url(#logoGrad)" opacity="0.2" />
+                        <path d="M50 20 L75 35 L75 65 L50 80 L25 65 L25 35 Z" fill="url(#logoGrad)" />
+                        <circle cx="50" cy="50" r="8" fill="white" />
+                        <path d="M35 45 L45 50 L35 55 M55 45 L65 50 L55 55" stroke="white" stroke-width="3" fill="none"
+                            stroke-linecap="round" />
+                    </svg>
+                    <h1 class="brand-title">SRMC</h1>
+                </div>
+                <h2 class="brand-tagline">Bulk SMS Sender System</h2>
+                <p class="brand-description">
+                    Professional messaging platform for enterprise communications.
+                    Streamline your outreach with powerful automation and analytics.
+                </p>
+
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <div class="feature-icon">⚡</div>
+                        <span>High-Speed Delivery</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">📊</div>
+                        <span>Real-Time Analytics</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🔒</div>
+                        <span>Secure & Encrypted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel - Login Form -->
+        <div class="login-panel">
+            <div class="login-container">
+                <div class="login-header">
+                    <h2 class="login-title">Welcome Back</h2>
+                    <p class="login-subtitle">Sign in to access your dashboard</p>
+                </div>
+
+                <div id="alertBox" class="alert" style="display: none;"></div>
+
+                <form id="loginForm" class="login-form">
+                    <div class="form-group">
+                        <label for="userId" class="form-label">
+                            <span class="label-icon">👤</span>
+                            User ID
+                        </label>
+                        <div class="input-wrapper">
+                            <input type="text" id="userId" class="form-input" placeholder="Enter your user ID" required
+                                autocomplete="username">
+                            <div class="input-border"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password" class="form-label">
+                            <span class="label-icon">🔑</span>
+                            Password
+                        </label>
+                        <div class="input-wrapper">
+                            <input type="password" id="password" class="form-input" placeholder="Enter your password"
+                                required autocomplete="current-password">
+                            <div class="input-border"></div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-login">
+                        <span class="btn-text">Sign In</span>
+                        <span class="btn-icon">→</span>
+                    </button>
+                </form>
+
+                <div class="login-footer">
+                    <p class="footer-text">
+                        <span class="footer-icon">🔐</span>
+                        Your data is protected with enterprise-grade encryption
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="javascript/config.js"></script>
+    <script src="javascript/login.js"></script>
+</body>
+
+</html>

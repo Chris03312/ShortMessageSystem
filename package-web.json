@@ -1,0 +1,93 @@
+{
+  "name": "sms-blast-desktop",
+  "productName": "SMS Blast Desktop",
+  "version": "1.0.0",
+  "description": "Bulk SMS Server - Desktop Application",
+  "main": "electron-main.js",
+  "scripts": {
+    "start": "electron .",
+    "start:web": "node server.js",
+    "dev": "cross-env NODE_ENV=development electron .",
+    "dev:web": "nodemon server.js",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win",
+    "build:mac": "electron-builder --mac",
+    "build:linux": "electron-builder --linux",
+    "build:all": "electron-builder -mwl"
+  },
+  "build": {
+    "appId": "com.smsblast.desktop",
+    "productName": "SMS Blast Desktop",
+    "files": [
+      "electron-main.js",
+      "electron-preload.js",
+      "controllers/**/*",
+      "databases/**/*",
+      "models/**/*",
+      "routes/**/*",
+      "utils/**/*",
+      "public/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "databases",
+        "to": "databases"
+      }
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "icon": "public/icon.png"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "public/icon.png",
+      "category": "public.app-category.business"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "icon": "public/icon.png",
+      "category": "Office"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    },
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    }
+  },
+  "keywords": [
+    "sms",
+    "bulk",
+    "messaging",
+    "electron",
+    "desktop"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.15.2",
+    "bcryptjs": "^3.0.3",
+    "better-sqlite3": "^12.9.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "electron": "^41.3.0",
+    "electron-builder": "^26.8.1",
+    "nodemon": "^3.1.11"
+  }
+}
